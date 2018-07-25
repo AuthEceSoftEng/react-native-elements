@@ -36,8 +36,8 @@ const TYPES = {
   },
   rocket: {
     source: ROCKET_IMAGE,
-    color: '#2ecc71',
-    backgroundColor: 'white',
+    color: 'white',
+    backgroundColor: '#000',
   },
   bell: {
     source: BELL_IMAGE,
