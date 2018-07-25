@@ -55,6 +55,7 @@ export default class Rating extends Component {
     ratingCount: 5,
     showReadOnlyText: true,
     imageSize: STAR_WIDTH,
+    tintColor: 'white',
     onFinishRating: () => console.log('Attach a function here.'),
   };
 
@@ -142,14 +143,14 @@ export default class Rating extends Component {
   }
 
   renderRatings() {
-    const { imageSize, ratingCount, type } = this.props;
+    const { imageSize, ratingCount, type, tintColor } = this.props;
     const source = TYPES[type].source;
 
     return times(ratingCount, index => (
       <View key={index} style={styles.starContainer}>
         <Image
           source={source}
-          style={{ width: imageSize, height: imageSize }}
+          style={{ width: imageSize, height: imageSize, tintColor }}
         />
       </View>
     ));
