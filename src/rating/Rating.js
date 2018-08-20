@@ -55,7 +55,7 @@ export default class Rating extends Component {
     ratingCount: 5,
     showReadOnlyText: true,
     imageSize: STAR_WIDTH,
-    tintColor: 'white',
+    tintColor: 'transparent',
     onFinishRating: () => console.log('Attach a function here.'),
   };
 
