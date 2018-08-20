@@ -161,7 +161,7 @@ export interface AvatarProps {
    */
 
   size?: 'small' | 'medium' | 'large' | 'xlarge' | number;
-  
+
   /**
    * Image Component of Avatar
    * @default React Native default Image component
@@ -620,9 +620,21 @@ export interface CheckBoxProps {
   containerStyle?: StyleProp<ViewStyle>;
 
   /**
+   * Style of container that wraps the check box and text
+   */
+  wrapperStyle?: StyleProp<ViewStyle>;
+
+  /**
    * style of text
    */
   textStyle?: StyleProp<TextStyle>;
+
+  /**
+   * Size of the checkbox
+   *
+   * @default 24
+   */
+  size?: number;
 
   /**
    * onLongPress function for checkbox
@@ -748,6 +760,11 @@ export interface InputProps extends TextInputProperties {
   errorMessage?: string;
 
   /**
+   * 	props to be passed to the React Native Text component used to display the error message (optional)
+   */
+  errorProps?: TextProps;
+
+  /**
    * 	Add styling to label (optional)
    */
   labelStyle?: StyleProp<TextStyle>;
@@ -756,6 +773,11 @@ export interface InputProps extends TextInputProperties {
    * 	Adds label (optional)
    */
   label?: string;
+
+  /**
+   *  props to be passed to the React Native Text component used to display the label (optional)
+   */
+  labelProps?: TextProps;
 }
 
 export class Input extends React.Component<InputProps, any> {
@@ -772,6 +794,13 @@ export class Input extends React.Component<InputProps, any> {
    * eg `this.inputRef.focus()`
    */
   focus(): void;
+
+  /**
+   * Calls isFocused() on the Input
+   *
+   * eg `let focused = this.inputRef.isFocused()`
+   */
+  isFocused(): boolean;
 
   /**
    * Calls blur on the Input
