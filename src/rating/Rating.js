@@ -56,13 +56,13 @@ export default class Rating extends Component {
     showReadOnlyText: true,
     imageSize: STAR_WIDTH,
     tintColor: 'transparent',
-    onFinishRating: () => console.log('Attach a function here.'),
+    onFinishRating: () => console.log('Attach a onFinishRating function here.'),
   };
 
   constructor(props) {
     super(props);
 
-    const { onFinishRating, fractions } = this.props;
+    const { onFinishRating, fractions, onStartRating } = this.props;
 
     const position = new Animated.ValueXY();
 
@@ -72,6 +72,11 @@ export default class Rating extends Component {
         const newPosition = new Animated.ValueXY();
         newPosition.setValue({ x: gesture.dx, y: 0 });
         this.setState({ position: newPosition, value: gesture.dx });
+      },
+      onPanResponderGrant: () => {
+        if (typeof onStartRating === 'function') {
+          onStartRating();
+        }
       },
       onPanResponderRelease: () => {
         const rating = this.getCurrentRating();
@@ -351,6 +356,7 @@ Rating.propTypes = {
   ratingCount: PropTypes.number,
   imageSize: PropTypes.number,
   onFinishRating: PropTypes.func,
+  onStartRating: PropTypes.func,
   showRating: PropTypes.bool,
   style: ViewPropTypes.style,
   ratingTextColor: PropTypes.string,
