@@ -24,6 +24,7 @@ const ANDROID_SECONDARY = 'rgba(0, 0, 0, 0.54)';
 
 const renderText = (content, defaultProps, style) =>
   renderNode(Text, content, {
+    ...defaultProps,
     style: [style, defaultProps && defaultProps.style],
   });
 const renderAvatar = content =>
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
       ios: {
         padding: 14,
       },
-      android: {
+      default: {
         padding: 16,
       },
     }),
@@ -208,7 +209,7 @@ const styles = StyleSheet.create({
       ios: {
         fontSize: 17,
       },
-      android: {
+      default: {
         fontSize: 16,
       },
     }),
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
       ios: {
         fontSize: 15,
       },
-      android: {
+      default: {
         color: ANDROID_SECONDARY,
         fontSize: 14,
       },
